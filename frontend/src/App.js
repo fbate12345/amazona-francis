@@ -29,6 +29,8 @@ import SigninVerificationScreen from './screens/SigninVerificationScreen';
 import MapScreen from './screens/MapScreen';
 import ChatScreen from './screens/ChatScreen';
 import ChatBox from './components/ChatBox';
+import ChatHistoryListScreen from './screens/ChatHistoryListScreen';
+import ChatHistoryDetailsScreen from './screens/ChatHistoryDetailsScreen';
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -113,6 +115,9 @@ function App() {
                   <li>
                     <Link to="/chatlist">Support</Link>
                   </li>
+                  <li>
+                    <Link to="/chat-history">Chat History</Link>
+                  </li>
                 </ul>
               </div>
             )}
@@ -159,6 +164,16 @@ function App() {
           ></SellerRoute>
           {/* Admin */}
           <AdminRoute path="/chatlist" component={ChatScreen}></AdminRoute>
+          <AdminRoute
+            path="/chat-history/:id"
+            component={ChatHistoryDetailsScreen}
+            exact
+          ></AdminRoute>
+          <AdminRoute
+            path="/chat-history"
+            component={ChatHistoryListScreen}
+            exact
+          ></AdminRoute>
 
           <AdminRoute
             path="/productlist"

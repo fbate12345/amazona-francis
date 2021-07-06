@@ -9,6 +9,7 @@ import userRouter from './routers/userRouter.js';
 import productRouter from './routers/productRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import uploadRouter from './routers/uploadRouter.js';
+import chatRouter from './routers/chatRouter.js';
 
 const mongodbUrl = config.MONGODB_URL;
 mongoose
@@ -22,6 +23,7 @@ mongoose
 
 const app = express();
 app.use(bodyParser.json());
+app.use('/api/chats', chatRouter);
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
